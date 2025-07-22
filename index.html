@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaditya Designing Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #222831;
+            --secondary: #393E46;
+            --accent: #00ADB5;
+            --light: #EEEEEE;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--light);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 173, 181, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(34, 40, 49, 0.9);
+            color: var(--light);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+           font-size: 1.8rem;
+           font-weight: 700;
+           color: var(--accent);
+           
+        }
+
+        .logo span {
+            color: var(--light);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(34, 40, 49, 0.7), rgba(34, 40, 49, 0.7)), 
+                        url('image/WhatsApp Image 2025-07-19 at 20.36.05_c66ccd07.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hero-btns .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--light);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        /* Designs Section */
+        .designs {
+            padding: 100px 0;
+            background-color: var(--secondary);
+            color: var(--light);
+        }
+
+        .designs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .design-filters {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: var(--accent);
+            color: var(--light);
+        }
+
+        .designs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .design-card {
+            background-color: var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .design-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .design-image {
+            height: 550px;
+            overflow: hidden;
+        }
+
+        .design-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .design-card:hover .design-image img {
+            transform: scale(1.05);
+        }
+
+        .design-info {
+            padding: 20px;
+        }
+
+        .design-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .design-info p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .design-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        .spec-icon {
+            color: var(--accent);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 50px;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            padding: 0 30px;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-content::before {
+            content: '\201C';
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: var(--accent);
+            opacity: 0.2;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .client-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-name {
+            font-weight: 700;
+        }
+
+        .client-title {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--secondary);
+            color: var(--light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background-color: var(--primary);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--secondary);
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--light);
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--secondary);
+            opacity: 0.7;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background-color: var(--light);
+            color: var(--primary);
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-body {
+            padding: 40px;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        .modal-design {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .modal-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .modal-specs {
+            margin: 30px 0;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .design-filters {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                gap: 30px;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                height: 350px;
+            }
+
+            .design-filters {
+                margin-top: 30px;
+            }
+
+            .designs-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-design {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .designs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Aaditya Designing Solutions</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#designs">Designs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>">
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Crafting Exceptional Living Spaces</h1>
+                <p>We transform dreams into architectural reality, creating homes that blend modern aesthetics with functionality.</p>
+                <div class="hero-btns">
+                    <a href="#designs" class="btn">Explore Designs</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About</h2>
+                    <p>Founded in 2025,A/M plan and manage construction projects,timelines,and budgets.</p>
+                    <p>We believe that good design is a balance of form, function, and sustainability. Each home we create tells a unique story while providing unparalleled comfort and livability.</p>
+                    <div class="about-features">
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div>
+                                <h3> Projects</h3>
+                                <p>Satisfied homeowners</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h3>Eco Friendly</h3>
+                                <p>Sustainable solutions</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h3>Client Focused</h3>
+                                <p>Personalized approach</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="WhatsApp Image 2025-07-17 at 22.30.24_50546aae.jpg" alt="Modern architectural studio with designers working on models and digital presentations">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designs Section -->
+    <section class="designs" id="designs">
+        <div class="container">
+            <div class="designs-header">
+                <h2 class="section-title">Our projects</h2>
+                
+            </div>
+            <div class="designs-grid">
+                <!-- Design Card 1 -->
+                <div class="design-card" data-category="modern">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.57_3a77ea52.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>GF PLAN</h3>
+                        
+                    </div>
+                </div>
+
+                <!-- Design Card 2 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.57_15d96797.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>SF PLAN</h3>
+                        
+                    </div>
+                </div>
+
+                <!-- Design Card 3 -->
+                <div class="design-card" data-category="traditional">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.57_9144fd85.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>FF PLAN</h3>
+                        
+                    </div>
+                </div>
+
+                <!-- Design Card 4 -->
+                <div class="design-card" data-category="minimalist">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.58_6a37c497.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>FOUNDATION PLAN</h3>
+                        
+                    </div>
+                </div>
+
+                <!-- Design Card 5 -->
+                <div class="design-card" data-category="modern">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.58_9b32231b.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>COLUMN CENTERLINE PLAN</h3>
+                       
+                    </div>
+                </div>
+
+                <!-- Design Card 6 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.59_40dd11ee.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>COLUMN PLAN</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 7 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.59_054d19a3.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>PLINTH BEAM PLAN</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 8 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.59_c9dfee0f.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>FOUNDATION SCHEDULE & COLUMN DETAILS</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 9 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.00_6434ca10.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>GF & FF BEAM & SLAB PLAN</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 10 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.00_a2d0fcb5.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>BEAM SECTION AND SCHEDULE</h3>
+                       
+                    </div>
+                </div>
+                <!-- Design Card 11 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.01_6ca1a932.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>SLAB SECTION AND SCHEDULE</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 12 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.01_ba466ded.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>STAIRCASE DETAILS</h3>
+                       
+                    </div>
+                </div>
+                <!-- Design Card 13 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.02_80586b7a.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>LINTEL DETAILS</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 14 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.02_3845365a.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>GF AND FF WATER SUPPLY LAYOUT</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 15 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.03_2fc32e38.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>SF AND TERRACE WATER SUPPLY LAYOUT</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 16 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.03_3acbae59.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>GF AND FF DRAINAGE SUPPLY LAYOUT</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 17 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.04_113edfd6.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>U-G WATER TANK DETAIL</h3>
+                        
+                    </div>
+                </div>
+                <!-- Design Card 18 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.04_712253ec.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>FOUNDATION LAYOUT</h3>
+                        
+                    </div>
+                </div>
+                 <!-- Design Card 19 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.05_298773b5.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>WATER SUPPLY AND DRAINAGE SUPPLY LEGEND</h3>
+                        
+                    </div>
+                </div>
+                 <!-- Design Card 20 -->
+                <div class="design-card" data-category="contemporary">
+                    <div class="design-image">
+                        <img src="WhatsApp Image 2025-07-17 at 20.13.05_b0d09f39.jpg" alt="">
+                    </div>
+                    <div class="design-info">
+                        <h3>SEPTIC TANK DETAIL</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <h2>Aaditya Mohane</h2>
+                    <p>Civil Engineer</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <p>E-287<br>Kaushalya pink heritage colony ashoka garden bhopal M.P</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <p>   <br>+91-9302356289<br>+91-8839985874</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <p>    <br>aadityamohane6232@gmail.com</p>
+                        </div>
+                       
+                    </div>
+                </div>
+        
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Aaditya designing solutions</a>
+                    <p>Plan and manage construction projects,timelines,and budgets.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#designs">Designs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Architectural Design</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">Renovation</a></li>
+                        <li><a href="#">Sustainable Design</a></li>
+                        <li><a href="#">Custom Homes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Learn More</h3>
+                    <ul>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Project Portfolio</a></li>
+                        <li><a href="#">Design Trends</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Elite civil solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="designModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-design">
+                    <div class="modal-gallery">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.57_3a77ea52.jpg" alt="">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.57_15d96797.jpg" alt="">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.57_9144fd85.jpg" alt="">
+                        <img src="WhatsApp Image 2025-07-17 at 20.12.58_6a37c497.jpg" alt="">
+                    </div>
+                    <div class="modal-info">
+                        <h2></h2>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links li');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+
+            // Animation for links
+            links.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+        });
+
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Design Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const designCards = document.querySelectorAll('.design-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                
+                designCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Testimonial Slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            sliderDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + testimonialSlides.length) % testimonialSlides.length;
+            testimonialSlides[currentSlide].classList.add('active');
+            sliderDots[currentSlide].classList.add('active');
+        }
+
+        sliderDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Auto slide change every 5 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Design Modal
+        const modal = document.getElementById('designModal');
+        const modalButtons = document.querySelectorAll('.view-details');
+        const closeModal = document.querySelector('.modal-close');
+
+        modalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const designId = button.getAttribute('data-design');
+                // In a real scenario, you would fetch design details based on designId
+                // For this example, we're just showing the modal with placeholder content
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Contact Form Submission
+        const form = document.getElementById('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real scenario, you would send the form data to a server
+            alert('Thank you for your message! We will get back to you soon.');
+            form.reset();
+        });
+
+        // Animation on Scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.about-content, .design-card, .testimonial-slider, .contact-content');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize elements with initial animation properties
+        document.querySelectorAll('.about-content, .design-card, .testimonial-slider, .contact-content').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transition = 'all 0.8s ease';
+            element.style.transform = 'translateY(50px)';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
